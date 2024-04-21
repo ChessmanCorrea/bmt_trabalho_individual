@@ -150,12 +150,9 @@ def gerar_resultados_consultas():
 
             distancias_documento_ordenadas = sorted(distancias_documento, key=lambda elem: elem[1])
 
-            for i, par_documento_distancia in enumerate(distancias_documento_ordenadas, start=1):
+            for posicao, par_documento_distancia in enumerate(distancias_documento_ordenadas, start=1):
                 codigo_documento = par_documento_distancia[0]
                 distancia = par_documento_distancia[1]
-
-                # 1-indexed
-                posicao = i
 
                 if (float(distancia) != 1.0):
                     resultados_consultas.append([ codigo_consulta, [posicao, codigo_documento, round(distancia, auxiliar.CASAS_DECIMAIS)]])
