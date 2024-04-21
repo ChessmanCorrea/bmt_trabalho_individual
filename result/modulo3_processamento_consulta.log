@@ -1,0 +1,12 @@
+2024-04-20 09:35:43,894 Execução de consulta iniciada em 2024-04-20 09:35:43
+2024-04-20 09:35:43,894 
+2024-04-20 09:35:43 Iniciando a leitura do arquivo de configuração pc.cfg
+2024-04-20 09:35:43,895 Fim da leitura do arquivo de configuração pc.cfg finalizada
+2024-04-20 09:35:43,969 Quantidade de consultas processadas 100
+2024-04-20 09:35:43,969 Quantidade de resultados esperados processados 4821
+2024-04-20 09:35:43,971 Gerando arquivo cvs
+2024-04-20 09:35:43,972 Fim da geração do arquivo cvs
+2024-04-20 09:35:43,973 Gerando arquivo cvs
+2024-04-20 09:35:43,979 Fim da geração do arquivo cvs
+2024-04-20 09:35:43,980 Finalização da consulta em 2024-04-20 09:35:43
+2024-04-20 09:35:43,980 Tempo de processamento: 0 segundos (87013 microsegundos)

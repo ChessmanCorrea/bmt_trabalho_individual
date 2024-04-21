@@ -1,0 +1,20 @@
+2024-04-21 12:07:16,975 
+Execução de consulta iniciada em 2024-04-21 12:07:16
+2024-04-21 12:07:16,975 
+-----------------------------------------------------
+2024-04-21 12:07:16,979 
+
+Fim da leitura do arquivo de configuração busca.cfg finalizada
+
+2024-04-21 12:07:16,979 Lendo termos da lista invertida
+2024-04-21 12:07:16,994 Termos da lista invertida carregados
+2024-04-21 12:07:16,994 Lendo motero vetorial.
+2024-04-21 12:07:20,304 Modelo vetorial carregado.
+2024-04-21 12:07:20,520 Iniciando geração dos resultados das buscas
+2024-04-21 12:10:37,640 Fim da geração dos resultados das buscas
+2024-04-21 12:10:37,640 Gerando arquivo cvs
+2024-04-21 12:10:37,707 Fim da geração do arquivo cvs
+2024-04-21 12:10:37,707 
+Finalização da consulta em 2024-04-21 12:10:37
+2024-04-21 12:10:37,707 
+Tempo de processamento: 200 segundos (731725 microsegundos)
