@@ -37,11 +37,14 @@ def ler_configuracao():
                         nome_arquivo_consultas = nome_arquivo    
                     elif comando == auxiliar.ESPERADOS:
                         nome_arquivo_esperados = nome_arquivo    
-                    
+                else:
+                    auxiliar.configurar_uso_stemmer(linha)
+        nome_arquivo_entrada = auxiliar.gerar_nome_arquivo(nome_arquivo_entrada)
    
         logging.info('Fim da leitura do arquivo de configuração pc.cfg finalizada')
     except:
         logging.info('Erro ao ler o arquivo de configuração')
+
 
 # ---------------------------------------------------------------------------------------------
 def processar_consultas():
@@ -68,6 +71,9 @@ def processar_consultas():
                 documento = item.text.strip()
                 score = item.attrib['score'].strip()
                 
+                # Está sendo considerado a contagem de relevância
+                # binária, conforme a orientação na disciplina.
+                # Ou um documento é relevante, ou não.
                 quantidade_votos = 0
                 for caractere in score:
                     if caractere != "0":
@@ -85,24 +91,28 @@ def processar_consultas():
 def executar():
     print ("Inicio do modulo 3")
 
-    hora_inicio = datetime.datetime.now()
+    startTime = datetime.datetime.now()
     auxiliar.configurar_log('modulo3_processamento_consulta.log')
     
-    logging.info("Execução de consulta iniciada em "+hora_inicio.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("Execução de consulta iniciada em "+startTime.strftime("%Y-%m-%d %H:%M:%S"))
     
     ler_configuracao()
     processar_consultas()
-    auxiliar.gerar_arquico_cvs(nome_arquivo_consultas,dicionario_consultas)
+    
+    nome_arquivo_consultas_final = auxiliar.gerar_nome_arquivo(nome_arquivo_consultas)
+    auxiliar.gerar_arquico_cvs(nome_arquivo_consultas_final,dicionario_consultas)
+    
     auxiliar.gerar_arquico_cvs(nome_arquivo_esperados, lista_documentos_esperados)
 
-    hora_fim = datetime.datetime.now()
+    endTime = datetime.datetime.now()
     
-    tempo = hora_fim - hora_inicio
+    time = endTime - startTime
 
-    logging.info("Finalização da consulta em "+hora_fim.strftime("%Y-%m-%d %H:%M:%S"))
-    logging.info("Tempo de processamento: "+ str(tempo.seconds) + " segundos ("+str(tempo.microseconds)+" microsegundos)")
+    logging.info("Finalização da consulta em "+endTime.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("Tempo de processamento: "+ str(time.seconds) + " segundos ("+str(time.microseconds)+" microsegundos)")
     
     print ("Fim do modulo 3")
+
 
 # ---------------------------------------------------------------------------------------------
 

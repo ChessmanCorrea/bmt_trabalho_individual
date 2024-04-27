@@ -1,17 +1,18 @@
-2024-04-20 09:34:29,126 Geração da lista invertida iniciada em 2024-04-20 09:34:29
-2024-04-20 09:34:29,126 Arquivos de entrada: 6
-2024-04-20 09:34:29,127 Fim da leitura do arquivo de configuração gli.cfg finalizada
-2024-04-20 09:34:29,127 Iniciando a leitura dos arquivos de entrada
-2024-04-20 09:34:29,208 Não foi possível extrair conteúdo do arquivo: 00168
-2024-04-20 09:34:29,405 Quantidade de arquivos lidos: 1238
-2024-04-20 09:34:29,405 Fim da leitura dos arquivos de entrada
-2024-04-20 09:34:29,407 Iniciando o pré-processamento dos dados
-2024-04-20 09:34:31,095 Quantidade de documentos pré-processados: 1238
-2024-04-20 09:34:31,096 Fim do pré-processamento dos dados
-2024-04-20 09:34:31,096 Gerando lista
-2024-04-20 09:34:31,150 Quantidade de elementos da lista invertida: 8958
-2024-04-20 09:34:31,150 Fim da geração da lista
-2024-04-20 09:34:31,150 Gerando arquivo cvs
-2024-04-20 09:34:31,204 Fim da geração do arquivo cvs
-2024-04-20 09:34:31,204 Finalização da lista invertida em 2024-04-20 09:34:31
-2024-04-20 09:34:31,205 Tempo de processamento: 2 segundos (78435 microsegundos)
+2024-04-22 15:42:32,800 Geração da lista invertida iniciada em 2024-04-22 15:42:32
+2024-04-22 15:42:32,803 Processamento sem stemmer
+2024-04-22 15:42:32,803 Arquivos de entrada: 6
+2024-04-22 15:42:32,803 Fim da leitura do arquivo de configuração gli.cfg finalizada
+2024-04-22 15:42:32,803 Iniciando a leitura dos arquivos de entrada
+2024-04-22 15:42:32,888 Não foi possível extrair conteúdo do arquivo: 00168
+2024-04-22 15:42:33,057 Quantidade de arquivos lidos: 1238
+2024-04-22 15:42:33,057 Fim da leitura dos arquivos de entrada
+2024-04-22 15:42:33,059 Iniciando o pré-processamento dos dados
+2024-04-22 15:42:34,804 Quantidade de documentos pré-processados: 1238
+2024-04-22 15:42:34,804 Fim do pré-processamento dos dados
+2024-04-22 15:42:34,804 Gerando lista
+2024-04-22 15:42:34,859 Quantidade de elementos da lista invertida: 8958
+2024-04-22 15:42:34,859 Fim da geração da lista
+2024-04-22 15:42:34,859 Gerando arquivo cvs
+2024-04-22 15:42:34,913 Fim da geração do arquivo cvs
+2024-04-22 15:42:34,913 Finalização da lista invertida em 2024-04-22 15:42:34
+2024-04-22 15:42:34,913 Tempo de processamento: 2 segundos (113198 microsegundos)

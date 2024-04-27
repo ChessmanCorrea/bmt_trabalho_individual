@@ -78,11 +78,17 @@ def ler_configuracao():
                         nome_arquivo_saida = nome_arquivo    
                     elif comando == LISTA_INVERTIDA:
                         nome_arquivo_lista_invertida = nome_arquivo    
-   
+                else:
+                    auxiliar.configurar_uso_stemmer(linha)
+        
+        nome_arquivo_modelo = auxiliar.gerar_nome_arquivo(nome_arquivo_modelo)
+        nome_arquivo_consultas = auxiliar.gerar_nome_arquivo(nome_arquivo_consultas)
+        nome_arquivo_lista_invertida =auxiliar.gerar_nome_arquivo(nome_arquivo_lista_invertida)
+        
+        
         logging.info('\n\nFim da leitura do arquivo de configuração busca.cfg finalizada\n')
     except:
         logging.info('Erro ao ler o arquivo de configuração')
-
 # ---------------------------------------------------------------------------------------------
 def ler_modelo_vetorial():
     global modelo_vetorial
@@ -146,16 +152,14 @@ def gerar_resultados_consultas():
             for codigo_documento, vetor_valores_documento in modelo_vetorial.items():
 
                 distancia = nltk.cluster.cosine_distance(vetor_valores_consulta, vetor_valores_documento) 
+                
                 distancias_documento.append([codigo_documento, distancia])
 
             distancias_documento_ordenadas = sorted(distancias_documento, key=lambda elem: elem[1])
 
-            for i, par_documento_distancia in enumerate(distancias_documento_ordenadas, start=1):
+            for posicao, par_documento_distancia in enumerate(distancias_documento_ordenadas, start=1):
                 codigo_documento = par_documento_distancia[0]
                 distancia = par_documento_distancia[1]
-
-                # 1-indexed
-                posicao = i
 
                 if (float(distancia) != 1.0):
                     resultados_consultas.append([ codigo_consulta, [posicao, codigo_documento, round(distancia, auxiliar.CASAS_DECIMAIS)]])
@@ -169,10 +173,10 @@ def gerar_resultados_consultas():
 def executar():
     print ("Inicio do modulo 4")
 
-    hora_inicio = datetime.datetime.now()
+    startTime = datetime.datetime.now()
     auxiliar.configurar_log('modulo4_busca.log')
     
-    logging.info("\nExecução de consulta iniciada em "+hora_inicio.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("\nExecução de consulta iniciada em "+startTime.strftime("%Y-%m-%d %H:%M:%S"))
     
     print('configuracao')
     ler_configuracao()
@@ -193,16 +197,18 @@ def executar():
     gerar_resultados_consultas()
     
     print('gravação do arquivo')
-    auxiliar.gerar_arquico_cvs(nome_arquivo_saida, resultados_consultas)
+    nome_arquivo_saida_final = auxiliar.gerar_nome_arquivo(nome_arquivo_saida)
+    auxiliar.gerar_arquico_cvs(nome_arquivo_saida_final, resultados_consultas)
 
-    hora_fim = datetime.datetime.now()
+    endTime = datetime.datetime.now()
     
-    tempo = hora_fim - hora_inicio
+    time = endTime - startTime
 
-    logging.info("\nFinalização da consulta em "+hora_fim.strftime("%Y-%m-%d %H:%M:%S"))
-    logging.info("\nTempo de processamento: "+ str(tempo.seconds) + " segundos ("+str(tempo.microseconds)+" microsegundos)")
+    logging.info("\nFinalização da consulta em "+endTime.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("\nTempo de processamento: "+ str(time.seconds) + " segundos ("+str(time.microseconds)+" microsegundos)")
     
     print ("Fim do modulo 4")
+    
     
 # ---------------------------------------------------------------------------------------------
 

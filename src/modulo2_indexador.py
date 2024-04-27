@@ -31,11 +31,13 @@ def ler_configuracao():
                         nome_arquivo_entrada = nome_arquivo
                     elif comando == auxiliar.ESCREVA:
                         nome_arquivo_saida = nome_arquivo    
-   
+                else:
+                    auxiliar.configurar_uso_stemmer(linha)
+        nome_arquivo_entrada = auxiliar.gerar_nome_arquivo(nome_arquivo_entrada)            
+                
         logging.info('Fim da leitura do arquivo de configuração index.cfg finalizada')
     except:
         logging.info('Erro ao ler o arquivo de configuração')
-
 # ---------------------------------------------------------------------------------------------
 
 def ler_arquivo_lista_intertida():
@@ -118,27 +120,33 @@ def gerar_modelo_vetorial():
 
 # ---------------------------------------------------------------------------------------------
 def executar():
+    
+    global nome_arquivo_saida
+    
     print ("Inicio do modulo 2")
 
-    hora_inicio = datetime.datetime.now()
+    startTime = datetime.datetime.now()
     auxiliar.configurar_log('modulo2_indexador.log')
     
-    logging.info("Geração da lista invertida iniciada em "+hora_inicio.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("Geração da lista invertida iniciada em "+startTime.strftime("%Y-%m-%d %H:%M:%S"))
     
     ler_configuracao()
     ler_arquivo_lista_intertida()
     gerar_modelo_vetorial()
+    
+    nome_arquivo_saida = auxiliar.gerar_nome_arquivo(nome_arquivo_saida)
     auxiliar.gerar_arquico_cvs(nome_arquivo_saida, matriz_termo_documento)
 
-    hora_fim = datetime.datetime.now()
+    endTime = datetime.datetime.now()
     
-    tempo = hora_fim - hora_inicio
+    time = endTime - startTime
 
-    logging.info("Finalização da lista invertida em "+hora_fim.strftime("%Y-%m-%d %H:%M:%S"))
-    logging.info("Tempo de processamento: "+ str(tempo.seconds) + " segundos ("+str(tempo.microseconds)+" microsegundos)")
+    logging.info("Finalização da lista invertida em "+endTime.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("Tempo de processamento: "+ str(time.seconds) + " segundos ("+str(time.microseconds)+" microsegundos)")
     
     print ("Fim do modulo 2")
                 
+            
             
 # ---------------------------------------------------------------------------------------------
 

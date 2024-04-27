@@ -1,11 +1,12 @@
-2024-04-21 12:04:37,040 Geração da lista invertida iniciada em 2024-04-21 12:04:37
-2024-04-21 12:04:37,040 Iniciando leitura do arquivo de configuração index.cfg
-2024-04-21 12:04:37,040 Fim da leitura do arquivo de configuração index.cfg finalizada
-2024-04-21 12:04:37,040 Lendo arquivo da lista invertida
-2024-04-21 12:04:37,080 Fim da leitura do arquivo da lista invertida
-2024-04-21 12:04:37,080 Gerando modelo vetorial
-2024-04-21 12:04:47,829 Fim da geração do modelo vetorial
-2024-04-21 12:04:47,931 Gerando arquivo cvs
-2024-04-21 12:04:50,743 Fim da geração do arquivo cvs
-2024-04-21 12:04:50,743 Finalização da lista invertida em 2024-04-21 12:04:50
-2024-04-21 12:04:50,743 Tempo de processamento: 13 segundos (703993 microsegundos)
+2024-04-22 15:42:40,799 Geração da lista invertida iniciada em 2024-04-22 15:42:40
+2024-04-22 15:42:40,799 Iniciando leitura do arquivo de configuração index.cfg
+2024-04-22 15:42:40,799 Processamento sem stemmer
+2024-04-22 15:42:40,799 Fim da leitura do arquivo de configuração index.cfg finalizada
+2024-04-22 15:42:40,799 Lendo arquivo da lista invertida
+2024-04-22 15:42:40,841 Fim da leitura do arquivo da lista invertida
+2024-04-22 15:42:40,841 Gerando modelo vetorial
+2024-04-22 15:42:51,020 Fim da geração do modelo vetorial
+2024-04-22 15:42:51,116 Gerando arquivo cvs
+2024-04-22 15:42:53,983 Fim da geração do arquivo cvs
+2024-04-22 15:42:53,983 Finalização da lista invertida em 2024-04-22 15:42:53
+2024-04-22 15:42:53,983 Tempo de processamento: 13 segundos (185103 microsegundos)

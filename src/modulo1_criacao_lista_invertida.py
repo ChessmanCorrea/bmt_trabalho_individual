@@ -5,6 +5,8 @@
     os códigos dos documentos onde a palavra foi encontrada. 
   
   - As stopwords, números, acentos e outros símbolos são removidos.
+  
+  - Com recurso para usar ou não o stemmer
 '''
 import os
 import logging
@@ -41,12 +43,15 @@ def ler_configuracao():
             for linha in arquivo_configuracao:
                 posicao_igual = linha.find('=')
                 if posicao_igual > 0:
-                    comando = linha[0:posicao_igual]
+                    comando = linha[0:posicao_igual].upper()
                     nome_arquivo = linha[posicao_igual+1 : len(linha)-1]
                     if comando == auxiliar.LEIA:
                         nomes_arquivos_entrada.append(nome_arquivo)
                     elif comando == auxiliar.ESCREVA:
-                        nome_arquivo_saida = nome_arquivo    
+                        nome_arquivo_saida = nome_arquivo
+                else:
+                    auxiliar.configurar_uso_stemmer(linha)
+                              
    
         logging.info('Arquivos de entrada: '+str(len(nomes_arquivos_entrada)))
         logging.info('Fim da leitura do arquivo de configuração gli.cfg finalizada')
@@ -101,7 +106,7 @@ def pre_processar_dados():
             # 2. Tokenização
             tokens= nltk.word_tokenize(conteudo_documento, 'english')
         
-            # 3. Procesamento dos tokens
+            # 3. Processamento dos tokens
             dicionario_tokens[codigo_documento] = auxiliar.processar_tokens(tokens)
 
         logging.info('Quantidade de documentos pré-processados: '+str(len(dicionario_tokens)))
@@ -136,23 +141,25 @@ def gerar_lista():
 
 # ---------------------------------------------------------------------------------------------
 def executar():
-    hora_inicio = datetime.datetime.now()
+    startTime = datetime.datetime.now()
     auxiliar.configurar_log('modulo1_lista_invertida.log')
     
-    logging.info("Geração da lista invertida iniciada em "+hora_inicio.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("Geração da lista invertida iniciada em "+startTime.strftime("%Y-%m-%d %H:%M:%S"))
     
     ler_configuracao()
     ler_arvivos_xml()
     pre_processar_dados()
     gerar_lista()
-    auxiliar.gerar_arquico_cvs(nome_arquivo_saida,documentos_tokens)
     
-    hora_fim = datetime.datetime.now()
+    nome_arquivo_saida_final = auxiliar.gerar_nome_arquivo(nome_arquivo_saida)
+    auxiliar.gerar_arquico_cvs(nome_arquivo_saida_final,documentos_tokens)
     
-    tempo = hora_fim - hora_inicio
+    endTime = datetime.datetime.now()
+    
+    time = endTime - startTime
 
-    logging.info("Finalização da lista invertida em "+hora_fim.strftime("%Y-%m-%d %H:%M:%S"))
-    logging.info("Tempo de processamento: "+ str(tempo.seconds) + " segundos ("+str(tempo.microseconds)+" microsegundos)")
+    logging.info("Finalização da lista invertida em "+endTime.strftime("%Y-%m-%d %H:%M:%S"))
+    logging.info("Tempo de processamento: "+ str(time.seconds) + " segundos ("+str(time.microseconds)+" microsegundos)")
     
     print ("fim do modulo 1")
         
