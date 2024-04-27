@@ -2,6 +2,7 @@ import modulo1_criacao_lista_invertida
 import modulo2_indexador
 import modulo3_processador_consulta
 import modulo4_realizacao_consulta
+import modulo5_avaliacao
 
 
 if __name__ == "__main__":
@@ -9,3 +10,4 @@ if __name__ == "__main__":
     modulo2_indexador.executar()
     modulo3_processador_consulta.executar()
     modulo4_realizacao_consulta.executar()
+    modulo5_avaliacao.executar()

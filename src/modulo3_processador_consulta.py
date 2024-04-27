@@ -4,7 +4,7 @@ import datetime
 import auxiliar
 import xml.etree.ElementTree as xml
 import nltk
-import csv
+
 
 nome_arquivo_entrada = ''
 nome_arquivo_consultas = ''
