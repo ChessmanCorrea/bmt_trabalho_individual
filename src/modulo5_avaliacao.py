@@ -215,9 +215,12 @@ def processar_mrr(resultados_consulta, avaliacao : Avaliacao):
 #  - Considera a posição do documento no ranking. Aplica um desconto (penalização) quando 
 #    coloca documentos relevantes mais para o final da lista e um crédito (recompensa)
 #    quando coloca documentos relevantes no topo da lista.
-#  - CG (Cumulative Gain) é a soma dos scores de todos os itens importantes 
-#  - D (discount) é o valor da penalização
+#  - CG (Cumulative Gain) é a soma dos scores (votos) de todos os itens importantes 
+#  - D (discount) é o valor da penalização em função da posição do documento na busca
+# NDCG = Normalied DCG
+#  - Usa o iDCG para ajustar os valores do NDXF
 #  - iDCG = DCG Ideal (representa o ranking ideal)
+#  
 
 def processar_dcg_ndcg(resultados_consulta, avaliacao : Avaliacao):
     ## resultados esperados lista todas as consultas
@@ -251,7 +254,94 @@ def processar_dcg_ndcg(resultados_consulta, avaliacao : Avaliacao):
             quantidade_documentos+=1
             if quantidade_documentos <= RANKING_MAXIMO:
                 documentos_ranking_k.append([linha[1],0]) # 1 = Código do documento)
-                ganho_ideal.append((linha[1], votos_documentos_relevantes.get(linha[1],0)))
+                ganho_ideal.append((linha[1], votos_documentos_relevantes.get(linha[1],0))) 
+            else:
+                break    
+          
+        ganho_ideal.sort(key=lambda x: x[1],reverse=True)
+        
+        for par in ganho_ideal:
+            iDCG.append([par[0],par[1]])
+            
+
+
+        # Calcula o CG (Cumulative Gain)
+        # o CG de um documento é a sua quantidade de votos 
+        # do documento anterior.  
+        # Exemplo:
+        #   CG =   < 4, 3,  4,  4,  0,  1,  2,  1,  3> 
+        
+        for i in range (len(documentos_ranking_k)):
+            if i+1 > 1:
+                # Recuperação do ganho (votos) do documento. O gaho é zero se o documento não for relevante
+                ganho = votos_documentos_relevantes.get(documentos_ranking_k[i][0], 0) 
+                # Cálculo do DCG
+                documentos_ranking_k[i][1] = ganho / numpy.log2(i+1) # i começa em zero
+                
+            else:
+                # O CG e o DCG é o mesmo para i = 1 (posição zero da matriz)
+                documentos_ranking_k[i][1] = votos_documentos_relevantes.get(documentos_ranking_k[i][0], 0)
+         
+
+        matriz_dcg.append ([t[1] for t in documentos_ranking_k])
+                        
+        for i in range (len(iDCG)):
+            if i+1 > 1:
+                # Recuperação do ganho (votos) do documento. O gaho é zero se o documento não for relevante
+                ganho = iDCG[i][0]
+                # Cálculo do DCG
+                iDCG[i][1] = ganho / numpy.log2(i+1) # i começa em zero
+
+                
+        nDCG = []
+        for i in range (len(documentos_ranking_k)):
+           nDCG.append(documentos_ranking_k[i][1] / max(iDCG[i][1],1)) 
+            
+        matriz_nDCG.append([t for t in nDCG])      
+   
+   
+          
+    matriz_dcg = numpy.array(matriz_dcg)
+    matriz_ndcg = numpy.array(matriz_nDCG)
+    
+    avaliacao.dcg = numpy.mean(matriz_dcg, axis=0)       # DCG = Discounted Cumulative Gain
+    avaliacao.ndcg = numpy.mean(matriz_ndcg, axis=0)         # NDCG = Normalized Discounted Cumulative Gain
+
+
+# Considera o valor do DCG do elemento anterior
+def processar_dcg_ndcg_acumulado(resultados_consulta, avaliacao : Avaliacao):
+    ## resultados esperados lista todas as consultas
+    matriz_dcg = []
+    matriz_nDCG = []
+
+
+    for id_consulta, esperados in resultados_esperados.items():
+
+        resultados = resultados_consulta[id_consulta]
+    
+        votos_documentos_relevantes = {}
+        
+        
+
+        # Seleção dos documentos relevantes da consulta (tiveram votos)     
+        # OBS: Também poderia possível limitar a quantidade de documentos
+        #      relevantes a serem considerados.  
+        for linha in esperados:
+          # 0 = Código do documento
+          # 1 = Quantidade de votos
+          votos_documentos_relevantes[linha[0]]=linha[1]
+        
+        # Seleciona os k primeiros documentos da busca
+        quantidade_documentos = 0
+        documentos_ranking_k = []
+        ganho_ideal = []
+        iDCG = []
+        
+        for linha in resultados: #resultados_bus
+            quantidade_documentos+=1
+            if quantidade_documentos <= RANKING_MAXIMO:
+                documentos_ranking_k.append([linha[1],0]) # 1 = Código do documento)
+                ganho_ideal.append((linha[1], votos_documentos_relevantes.get(linha[1],0))) 
             else:
                 break    
           
@@ -308,6 +398,7 @@ def processar_dcg_ndcg(resultados_consulta, avaliacao : Avaliacao):
     
     avaliacao.dcg = numpy.mean(matriz_dcg, axis=0)       # DCG = Discounted Cumulative Gain
     avaliacao.ndcg = numpy.mean(matriz_ndcg, axis=0)         # NDCG = Normalized Discounted Cumulative Gain
+
 
 # ----------------------------------------------------------------------------------------- #        
 # Precision_@_K 
