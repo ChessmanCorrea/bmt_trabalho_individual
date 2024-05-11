@@ -1,13 +1,13 @@
-2024-04-27 09:14:13,022 
-Execução da avaliacao iniciada em 2024-04-27 09:14:13
-2024-04-27 09:14:13,023 Configuração lida
-2024-04-27 09:14:13,023 Lendo arquivo da resultados de consulta result\resultados_busca_stemmer.csv
-2024-04-27 09:14:13,071 Fim da leitura do arquivo de consulta result\resultados_busca_stemmer.csv
-2024-04-27 09:14:13,071 Lendo arquivo da resultados de consulta result\resultados_busca_nostemmer.csv
-2024-04-27 09:14:13,154 Fim da leitura do arquivo de consulta result\resultados_busca_nostemmer.csv
-2024-04-27 09:14:13,154 Lendo arquivo de resultados esperados
-2024-04-27 09:14:13,161 Fim da leitura do arquivo de resultados esperados
-2024-04-27 09:14:16,232 
-Execução da avaliacao finalizada em 2024-04-27 09:14:16
-2024-04-27 09:14:16,232 
-Tempo de processamento: 3 segundos (210055 microsegundos)
+2024-05-11 10:02:07,487 
+Execução da avaliacao iniciada em 2024-05-11 10:02:07
+2024-05-11 10:02:07,490 Configuração lida
+2024-05-11 10:02:07,490 Lendo arquivo da resultados de consulta result\resultados_busca_stemmer.csv
+2024-05-11 10:02:07,761 Fim da leitura do arquivo de consulta result\resultados_busca_stemmer.csv
+2024-05-11 10:02:07,761 Lendo arquivo da resultados de consulta result\resultados_busca_nostemmer.csv
+2024-05-11 10:02:08,024 Fim da leitura do arquivo de consulta result\resultados_busca_nostemmer.csv
+2024-05-11 10:02:08,024 Lendo arquivo de resultados esperados
+2024-05-11 10:02:08,030 Fim da leitura do arquivo de resultados esperados
+2024-05-11 10:02:22,459 
+Execução da avaliacao finalizada em 2024-05-11 10:02:22
+2024-05-11 10:02:22,459 
+Tempo de processamento: 14 segundos (972649 microsegundos)

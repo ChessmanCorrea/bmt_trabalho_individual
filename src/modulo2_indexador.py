@@ -65,7 +65,7 @@ def gerar_modelo_vetorial():
         # Gera uma lista de documentos não repetidos
         for termo, documentos_com_o_termo in lista_invertida.items():
             
-            #Gera uma coleção de documentos com a frequência de cada termo
+            #Gera uma coleção de documentos com a frequência de cada termo no documento
             for documento in documentos_com_o_termo:
                 documento = documento.strip() #misteriosamente aparece um espaço no início do código do documento...
                 if documento in frequencia_termos_documentos:
@@ -104,7 +104,8 @@ def gerar_modelo_vetorial():
 
                 tf = frequencia_termos[termo]/len(frequencia_termos)
 
-                tf_idf = round(tf * idf, auxiliar.CASAS_DECIMAIS)
+                tf_idf = tf * idf
+                #tf_idf = round(tf * idf, auxiliar.CASAS_DECIMAIS)
                 
 
                 pesos_palavra.append(tf_idf)

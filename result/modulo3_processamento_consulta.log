@@ -1,13 +1,13 @@
-2024-04-22 15:43:07,680 Execução de consulta iniciada em 2024-04-22 15:43:07
-2024-04-22 15:43:07,680 
-2024-04-22 15:43:07 Iniciando a leitura do arquivo de configuração pc.cfg
-2024-04-22 15:43:07,681 Processamento sem stemmer
-2024-04-22 15:43:07,681 Fim da leitura do arquivo de configuração pc.cfg finalizada
-2024-04-22 15:43:07,763 Quantidade de consultas processadas 100
-2024-04-22 15:43:07,763 Quantidade de resultados esperados processados 4821
-2024-04-22 15:43:07,764 Gerando arquivo cvs
-2024-04-22 15:43:07,765 Fim da geração do arquivo cvs
-2024-04-22 15:43:07,765 Gerando arquivo cvs
-2024-04-22 15:43:07,775 Fim da geração do arquivo cvs
-2024-04-22 15:43:07,775 Finalização da consulta em 2024-04-22 15:43:07
-2024-04-22 15:43:07,775 Tempo de processamento: 0 segundos (95673 microsegundos)
+2024-05-11 09:26:17,285 Execução de consulta iniciada em 2024-05-11 09:26:17
+2024-05-11 09:26:17,285 
+2024-05-11 09:26:17 Iniciando a leitura do arquivo de configuração pc.cfg
+2024-05-11 09:26:17,285 Processamento com stemmer
+2024-05-11 09:26:17,285 Fim da leitura do arquivo de configuração pc.cfg finalizada
+2024-05-11 09:26:17,359 Quantidade de consultas processadas 100
+2024-05-11 09:26:17,360 Quantidade de resultados esperados processados 4821
+2024-05-11 09:26:17,360 Gerando arquivo cvs
+2024-05-11 09:26:17,361 Fim da geração do arquivo cvs
+2024-05-11 09:26:17,361 Gerando arquivo cvs
+2024-05-11 09:26:17,369 Fim da geração do arquivo cvs
+2024-05-11 09:26:17,369 Finalização da consulta em 2024-05-11 09:26:17
+2024-05-11 09:26:17,369 Tempo de processamento: 0 segundos (84999 microsegundos)

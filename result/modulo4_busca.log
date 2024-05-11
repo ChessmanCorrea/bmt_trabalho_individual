@@ -1,21 +1,21 @@
-2024-04-22 15:43:15,507 
-Execução de consulta iniciada em 2024-04-22 15:43:15
-2024-04-22 15:43:15,508 
+2024-05-11 09:26:26,299 
+Execução de consulta iniciada em 2024-05-11 09:26:26
+2024-05-11 09:26:26,299 
 -----------------------------------------------------
-2024-04-22 15:43:15,508 Processamento sem stemmer
-2024-04-22 15:43:15,508 
+2024-05-11 09:26:26,299 Processamento com stemmer
+2024-05-11 09:26:26,299 
 
 Fim da leitura do arquivo de configuração busca.cfg finalizada
 
-2024-04-22 15:43:15,508 Lendo termos da lista invertida
-2024-04-22 15:43:15,526 Termos da lista invertida carregados
-2024-04-22 15:43:15,527 Lendo motero vetorial.
-2024-04-22 15:43:18,997 Modelo vetorial carregado.
-2024-04-22 15:43:19,211 Iniciando geração dos resultados das buscas
-2024-04-22 15:46:40,586 Fim da geração dos resultados das buscas
-2024-04-22 15:46:40,587 Gerando arquivo cvs
-2024-04-22 15:46:40,650 Fim da geração do arquivo cvs
-2024-04-22 15:46:40,650 
-Finalização da consulta em 2024-04-22 15:46:40
-2024-04-22 15:46:40,650 
-Tempo de processamento: 205 segundos (143069 microsegundos)
+2024-05-11 09:26:26,299 Lendo termos da lista invertida
+2024-05-11 09:26:26,312 Termos da lista invertida carregados
+2024-05-11 09:26:26,312 Lendo motero vetorial.
+2024-05-11 09:26:28,645 Modelo vetorial carregado.
+2024-05-11 09:26:28,814 Iniciando geração dos resultados das buscas
+2024-05-11 09:28:46,486 Fim da geração dos resultados das buscas
+2024-05-11 09:28:46,487 Gerando arquivo cvs
+2024-05-11 09:28:46,687 Fim da geração do arquivo cvs
+2024-05-11 09:28:46,688 
+Finalização da consulta em 2024-05-11 09:28:46
+2024-05-11 09:28:46,688 
+Tempo de processamento: 140 segundos (389317 microsegundos)
